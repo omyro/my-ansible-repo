@@ -2,7 +2,7 @@
   hosts: amazon-clients
   remote_user: root
   vars_files:
-  - variables.yml 
+    - variables.yml
 
   tasks:
   - name: Update all packages
@@ -11,15 +11,15 @@
       state: latest
   - name: Install apache
     ansible.builtin.yum:
-      name: '{{amazon-package}}'
+      name: '{{ amazon_package }}'
       state: present
   - name: Start service httpd, if not started
     ansible.builtin.service:
-      name: '{{amazon-package}}'
+      name: '{{ amazon_package }}'
       state: started
   - name: Start on boot enabled
     ansible.builtin.service:
-      name: '{{amazon-package}}'
+      name: '{{ amazon_package }}'
       enabled: true
   - name: Copy index.html file to target servers
     ansible.builtin.copy:
@@ -28,7 +28,10 @@
 
 - name: Update web servers
   hosts: ubuntu-clients
-
+  remote_user: root
+  vars_files:
+    - variables.yml
+  
   tasks:
   - name: Update all packages
     ansible.builtin.apt:
@@ -36,15 +39,15 @@
       state: latest
   - name: Install apache
     ansible.builtin.apt:
-      name: '{{ubuntu-package}}'
+      name: '{{ ubuntu_package }}'
       update_cache: yes
   - name: Start service, if not started
     ansible.builtin.service:
-      name: '{{ubuntu-package}}'
+      name: '{{ ubuntu_package }}'
       state: started
   - name: Start on boot enabled
     ansible.builtin.service:
-      name: '{{ubuntu-package}}'
+      name: '{{ ubuntu_package }}'
       enabled: true
   - name: Copy index.html file to target servers
     ansible.builtin.copy:
@@ -54,6 +57,8 @@
 - name: Install git on ubuntu
   hosts: ubuntu-clients
   remote_user: root
+  vars_files:
+    - variables.yml
 
   tasks:
   - name: Update all packages
@@ -62,13 +67,15 @@
       state: latest
   - name: Install git
     ansible.builtin.apt:
-      name: '{{git-package}}'
+      name: '{{ git_package }}'
       state: present
       update_cache: yes
 
 - name: Install git on amazon linux 2
   hosts: amazon-clients
   remote_user: root
+  vars_files:
+    - variables.yml
 
   tasks:
   - name: Update all packages
@@ -77,6 +84,6 @@
       state: latest
   - name: Install git
     ansible.builtin.yum:
-      name: '{{git-package}}'
+      name: '{{ git_package }}'
       state: present
       update_cache: yes
