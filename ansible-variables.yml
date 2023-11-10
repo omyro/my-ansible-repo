@@ -1,0 +1,82 @@
+- name: Update web servers
+  hosts: amazon-clients
+  remote_user: root
+  vars_files:
+  - variables.yml 
+
+  tasks:
+  - name: Update all packages
+    ansible.builtin.yum:
+      name: '*'
+      state: latest
+  - name: Install apache
+    ansible.builtin.yum:
+      name: '{{amazon-package}}'
+      state: present
+  - name: Start service httpd, if not started
+    ansible.builtin.service:
+      name: '{{amazon-package}}'
+      state: started
+  - name: Start on boot enabled
+    ansible.builtin.service:
+      name: '{{amazon-package}}'
+      enabled: true
+  - name: Copy index.html file to target servers
+    ansible.builtin.copy:
+      src: /home/ubuntu/index.html
+      dest: /var/www/html/
+
+- name: Update web servers
+  hosts: ubuntu-clients
+
+  tasks:
+  - name: Update all packages
+    ansible.builtin.apt:
+      name: '*'
+      state: latest
+  - name: Install apache
+    ansible.builtin.apt:
+      name: '{{ubuntu-package}}'
+      update_cache: yes
+  - name: Start service, if not started
+    ansible.builtin.service:
+      name: '{{ubuntu-package}}'
+      state: started
+  - name: Start on boot enabled
+    ansible.builtin.service:
+      name: '{{ubuntu-package}}'
+      enabled: true
+  - name: Copy index.html file to target servers
+    ansible.builtin.copy:
+      src: /home/ubuntu/index.html
+      dest: /var/www/html/
+
+- name: Install git on ubuntu
+  hosts: ubuntu-clients
+  remote_user: root
+
+  tasks:
+  - name: Update all packages
+    ansible.builtin.apt:
+      name: '*'
+      state: latest
+  - name: Install git
+    ansible.builtin.apt:
+      name: '{{git-package}}'
+      state: present
+      update_cache: yes
+
+- name: Install git on amazon linux 2
+  hosts: amazon-clients
+  remote_user: root
+
+  tasks:
+  - name: Update all packages
+    ansible.builtin.yum:
+      name: '*'
+      state: latest
+  - name: Install git
+    ansible.builtin.yum:
+      name: '{{git-package}}'
+      state: present
+      update_cache: yes

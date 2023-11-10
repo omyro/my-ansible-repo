@@ -1,0 +1,3 @@
+amazon-package: httpd
+ubuntu-package: apache2
+git-package: git
