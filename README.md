@@ -15,6 +15,7 @@ Once they have launched, update their names, designating one of the ubuntu serve
 
 ## Step 2: Setting up the controller
 
+Connect to the ubuntu-controller EC2 instance using Session Manager.
 To install Ansible on the ubuntu controller, use the official ansible documentation: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu 
 
 ![image2](images/ansibleinstall.png)
