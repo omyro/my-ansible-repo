@@ -11,15 +11,15 @@
       state: latest
   - name: Install apache
     ansible.builtin.yum:
-      name: '{{amazon-package}}'
+      name: '{{ amazon_package }}'
       state: present
   - name: Start service httpd, if not started
     ansible.builtin.service:
-      name: '{{amazon-package}}'
+      name: '{{ amazon_package }}'
       state: started
   - name: Start on boot enabled
     ansible.builtin.service:
-      name: '{{amazon-package}}'
+      name: '{{ amazon_package }}'
       enabled: true
   - name: Copy index.html file to target servers
     ansible.builtin.copy:
@@ -31,5 +31,5 @@
   handlers:
   - name: restart httpd
     ansible.builtin.service:
-      name: '{{amazon-package}}'
+      name: '{{ amazon_package }}'
       state: restarted
