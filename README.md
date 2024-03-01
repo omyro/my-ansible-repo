@@ -1,6 +1,6 @@
 # Ansible Playbooks Project
 
-In this project, I created Ansible playbooks for installing apache and git on multiple ubuntu and amazon linux servers, using variables and handlers.
+In this project, I created Ansible playbooks for installing Apache and Git on multiple Ubuntu and Amazon Linux servers, using variables and handlers.
 
 # Project Steps
 
@@ -21,6 +21,13 @@ Connect to the ubuntu-controller EC2 instance using Session Manager.
 
 First, check for Python and then install Ansible on the ubuntu controller.
 
-To install Ansible, use the official documentation: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu 
+To install Ansible, use the official documentation: [Ansible Documentation](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu)
 
 ![image2](images/ansibleinstall.png)
+
+![image3](images/install1.png)
+
+![image3](images/install2.png)
+
+![image3](images/ansibleversion.png)
+
