@@ -33,6 +33,8 @@ Verify Ansible has been installed with the command `ansible --version`.
 
 ![image5](images/ansibleversion.png)
 
+## Step 3: Key Pairs
+
 Switch to the root user in the controller and generate an SSH key pair.
 
 ![image6](images/keypair.png)
@@ -51,3 +53,4 @@ Now, connect to the ubuntu-client-1 EC2 instance via the Session Manager. Switch
 Follow the same steps to paste the public key into the authorized_keys file in the .ssh directory.
 
 ![image10](images/pasteubuntu.png)
+
