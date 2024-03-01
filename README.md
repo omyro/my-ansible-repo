@@ -10,7 +10,7 @@ First, launch five EC2 instances in us-east-1. Using the free tier options, laun
 
 Under advanced details, make sure to select an EC2 SSM role for the IAM instance profile to be able to connect to the instances via the Session Manager.
 
-Once they have launched, update their names, designating one of the ubuntu servers as the controller, and the other two as clients. Rename the amazon linux 2 clients as well.
+Once they have launched, update their names, designating one of the ubuntu servers as the controller, and the other two as clients. Assign names to the amazon linux 2 clients as well.
 
 
 ![image1](images/architecture.png)
@@ -27,8 +27,22 @@ To install Ansible, use the official documentation: [Ansible Documentation](http
 
 ![image3](images/install1.png)
 
-![image3](images/install2.png)
+![image4](images/install2.png)
 
-![image3](images/ansibleversion.png)
+Verify Ansible has been installed with the command `ansible --version`.
 
-Verify Ansible has been installed with the command `ansible --version`
+![image5](images/ansibleversion.png)
+
+Switch to the root user in the controller and generate an SSH key pair.
+
+![image6](images/keypair.png)
+
+Copy the public key from the .ssh directory.
+
+![image7](images/copykey.png)
+
+Connect to the amazon-client-1 EC2 instance via the Session Manager.
+Paste the public key into the authorized_keys file in the .ssh directory of the amazon-client-1 server using the Vim text editor. Press Esc, then type `:wq!` to save and quit.
+
+![image7](images/pastekey.png)
+![image7](images/pastevim.png)
