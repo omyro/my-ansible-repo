@@ -1,6 +1,6 @@
 # Ansible Playbooks Project
 
-In this project, I created Ansible playbooks for installing Apache and Git on multiple Ubuntu and Amazon Linux servers, using variables and handlers.
+In this project, I created Ansible playbooks for installing Apache and Git on multiple Ubuntu and Amazon Linux servers, using variables and handlers. I set up the architecture on AWS and configured several client servers through an Ansible controller.
 
 # Project Steps
 
@@ -9,6 +9,8 @@ In this project, I created Ansible playbooks for installing Apache and Git on mu
 First, launch five EC2 instances in us-east-1. Using the free tier options, launch three ubuntu servers and two amazon linux 2 servers. 
 
 Under advanced details, make sure to select an EC2 SSM role for the IAM instance profile to be able to connect to the instances via the Session Manager.
+
+Also, make sure the security group attached to the instances allows inbound SSH traffic.
 
 Once they have launched, update their names, designating one of the ubuntu servers as the controller, and the other two as clients. Assign names to the amazon linux 2 clients as well.
 
@@ -43,14 +45,35 @@ Copy the public key from the .ssh directory.
 
 ![image7](images/copykey.png)
 
-Connect to the amazon-client-1 EC2 instance via the Session Manager. Switch to the root user.
-Paste the public key into the authorized_keys file in the .ssh directory of the amazon-client-1 server using the Vim text editor. Press I to insert, then paste the public key. Press Esc, then type `:wq!` to save and quit.
+Connect to the amazon-client1 EC2 instance via the Session Manager. Switch to the root user.
+
+Paste the public key into the authorized_keys file in the .ssh directory of the amazon-client1 server using the Vim text editor. Press I to insert, then paste the public key. Press Esc, then type `:wq!` to save and quit.
 
 ![image8](images/pastekey.png)
 ![image9](images/pastevim.png)
 
-Now, connect to the ubuntu-client-1 EC2 instance via the Session Manager. Switch to the root user.
+Now, connect to the ubuntu-client1 EC2 instance via the Session Manager. Switch to the root user.
+
 Follow the same steps to paste the public key into the authorized_keys file in the .ssh directory.
 
 ![image10](images/pasteubuntu.png)
+
+## Step 4: Setting hostnames
+
+Set hostnames for both client servers (amazon-client1 and ubuntu-client1) with the `hostnamectl set-hostname` command:
+
+![image11](images/hostname1.png)
+![image12](images/hostname2.png)
+
+## Step 5: Testing connectivity
+
+To test connectivity, SSH from the controller into amazon-client1
+
+To obtain the private IP address of the server, use the command `ifconfig`.
+
+## Step 6: Repeat Steps 2-5
+
+Repeat steps 2-5 for the remaining two servers (ubuntu-client2 and amazon-client2).
+
+## Step 7:
 
