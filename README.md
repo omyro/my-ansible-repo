@@ -31,3 +31,4 @@ To install Ansible, use the official documentation: [Ansible Documentation](http
 
 ![image3](images/ansibleversion.png)
 
+Verify Ansible has been installed with the command <span style="background-color: #ffff00">ansible --version</span>
