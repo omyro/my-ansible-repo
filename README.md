@@ -84,3 +84,5 @@ Repeat steps 2-5 for the remaining two servers (ubuntu-client2 and amazon-client
 ## Step 7: Edit inventory file
 
 On the controller, navigate to the ansible directory with the `cd /etc/ansible/` command, find the inventory file called hosts, and edit the file using the `vim` command.
+
+![image15](images/hostsfile.png)
