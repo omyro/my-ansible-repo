@@ -41,8 +41,13 @@ Copy the public key from the .ssh directory.
 
 ![image7](images/copykey.png)
 
-Connect to the amazon-client-1 EC2 instance via the Session Manager.
-Paste the public key into the authorized_keys file in the .ssh directory of the amazon-client-1 server using the Vim text editor. Press Esc, then type `:wq!` to save and quit.
+Connect to the amazon-client-1 EC2 instance via the Session Manager. Switch to the root user.
+Paste the public key into the authorized_keys file in the .ssh directory of the amazon-client-1 server using the Vim text editor. Press I to insert, then paste the public key. Press Esc, then type `:wq!` to save and quit.
 
-![image7](images/pastekey.png)
-![image7](images/pastevim.png)
+![image8](images/pastekey.png)
+![image9](images/pastevim.png)
+
+Now, connect to the ubuntu-client-1 EC2 instance via the Session Manager. Switch to the root user.
+Follow the same steps to paste the public key into the authorized_keys file in the .ssh directory.
+
+![image10](images/pasteubuntu.png)
