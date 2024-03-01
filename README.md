@@ -67,9 +67,15 @@ Set hostnames for both client servers (amazon-client1 and ubuntu-client1) with t
 
 ## Step 5: Testing connectivity
 
-To test connectivity, SSH from the controller into amazon-client1
+To test connectivity, SSH from the controller into ubuntu-client1.
 
-To obtain the private IP address of the server, use the command `ifconfig`.
+To obtain the private IP address of the ubuntu-client1 server, use the command `ifconfig`.
+
+![image13](images/sshubuntu.png)
+
+Next, SSH from the controller into amazon-client1 following the same steps.
+
+![image14](images/sshamazon.png)
 
 ## Step 6: Repeat Steps 2-5
 
