@@ -81,5 +81,6 @@ Next, SSH from the controller into amazon-client1 following the same steps.
 
 Repeat steps 2-5 for the remaining two servers (ubuntu-client2 and amazon-client2).
 
-## Step 7:
+## Step 7: Edit inventory file
 
+On the controller, navigate to the ansible directory with the `cd /etc/ansible/` command, find the inventory file called hosts, and edit the file using the `vim` command.
