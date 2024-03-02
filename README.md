@@ -120,4 +120,10 @@ Create the ansible playbook YAML file on the controller using the `vim` command.
 
 ![image19](images/playbookfile.png)
 
-## Step 12: 
+## Step 12: Running the playbook
+
+Use the `ansible-playbook` command to run the playbook. 
+
+![image20](images/ansibleplaybook.png)
+
+![image20](images/ansibleplaybook.png)
