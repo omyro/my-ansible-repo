@@ -50,6 +50,7 @@ Connect to the amazon-client1 EC2 instance via the Session Manager. Switch to th
 Paste the public key into the authorized_keys file in the .ssh directory of the amazon-client1 server using the Vim text editor. Press I to insert, then paste the public key. Press Esc, then type `:wq!` to save and quit.
 
 ![image8](images/pastekey.png)
+
 ![image9](images/pastevim.png)
 
 Now, connect to the ubuntu-client1 EC2 instance via the Session Manager. Switch to the root user.
@@ -63,6 +64,7 @@ Follow the same steps to paste the public key into the authorized_keys file in t
 Set hostnames for both client servers (amazon-client1 and ubuntu-client1) with the `hostnamectl set-hostname` command:
 
 ![image11](images/hostname1.png)
+
 ![image12](images/hostname2.png)
 
 ## Step 5: Testing connectivity
@@ -85,4 +87,14 @@ Repeat steps 2-5 for the remaining two servers (ubuntu-client2 and amazon-client
 
 On the controller, navigate to the ansible directory with the `cd /etc/ansible/` command, find the inventory file called hosts, and edit the file using the `vim` command.
 
+Add the private IP addresses of the four clients and save the changes.
+
 ![image15](images/hostsfile.png)
+
+![image15](images/hostsvim.png)
+
+Use the ansible ad hoc command `ansible -m ping all` to test connectivity to all four hosts.
+
+You should get a ping pong response for each client server.
+
+
