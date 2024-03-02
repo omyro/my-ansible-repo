@@ -105,7 +105,7 @@ You should get a ping pong response for each client server.
 
 Create a playbook to deploy apache and git on all client servers.
 
-Here is the code I wrote for this project: 
+You can find my playbook code here: 
 [Apache & Git Playbook](./apache-git-playbook.yml)
 
 ## Step 10: Adding index.html file
@@ -126,11 +126,22 @@ Use the `ansible-playbook` command to run the playbook. The argument of the comm
 
 ![image20](images/ansibleplaybook.png)
 
-![image20](images/ansibleplaybook.png)
-
 Most of the Ansible modules are idempotent, so the first time you run the playbook you will see "changed" under the tasks. If you run the playbook again, you will see "ok" in green under the tasks.
+
+![image21](images/runplaybook1.png)
+
+![image22](images/runplaybook2.png)
 
 ## Step 13: Test the webservers
 
 Test each of the client servers through the web browser using their public IPs. You should see your index.html message on each one.
 
+![image23](images/browser1.png)
+
+![image24](images/browser2.png)
+
+![image25](images/browser3.png)
+
+![image26](images/browser4.png)
+
+## Step 14: Use variables and handlers
