@@ -93,9 +93,31 @@ Add the private IP addresses of the four clients and save the changes.
 
 ![image16](images/hostsvim.png)
 
+## Step 8: Ping client servers
+
 Use the ansible ad hoc command `ansible -m ping all` to test connectivity to all four hosts.
 
 You should get a ping pong response for each client server.
 
 ![image17](images/pingpong.png)
 
+## Step 9: Ansible Playbook
+
+Create a playbook to deploy apache and git on all client servers.
+
+Here is the code I wrote for this project: 
+[Apache & Git Playbook](./apache-git-playbook.yml)
+
+## Step 10: Adding index.html file
+
+Create the index.html file for the webservers on the controller using the command `vim index.html`. Insert a message you would like the web servers to display, such as the one shown below.
+
+![image18](images/indexfile.png)
+
+## Step 11: Adding the playbook file
+
+Create the ansible playbook YAML file on the controller using the `vim` command. You can choose any name for the file. Insert the code from Step 9 into the file and save changes.
+
+![image19](images/playbookfile.png)
+
+## Step 12: 
