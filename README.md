@@ -116,14 +116,21 @@ Create the index.html file for the webservers on the controller using the comman
 
 ## Step 11: Adding the playbook file
 
-Create the ansible playbook YAML file on the controller using the `vim` command. You can choose any name for the file. Insert the code from Step 9 into the file and save changes.
+Create the Ansible playbook YAML file on the controller using the `vim` command. You can choose any name for the file. Insert the code from Step 9 into the file and save changes.
 
 ![image19](images/playbookfile.png)
 
 ## Step 12: Running the playbook
 
-Use the `ansible-playbook` command to run the playbook. 
+Use the `ansible-playbook` command to run the playbook. The argument of the command is the file name. (Note: Python must be installed on the client servers for the playbook to run successfully.)
 
 ![image20](images/ansibleplaybook.png)
 
 ![image20](images/ansibleplaybook.png)
+
+Most of the Ansible modules are idempotent, so the first time you run the playbook you will see "changed" under the tasks. If you run the playbook again, you will see "ok" in green under the tasks.
+
+## Step 13: Test the webservers
+
+Test each of the client servers through the web browser using their public IPs. You should see your index.html message on each one.
+
