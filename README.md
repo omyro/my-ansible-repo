@@ -91,10 +91,11 @@ Add the private IP addresses of the four clients and save the changes.
 
 ![image15](images/hostsfile.png)
 
-![image15](images/hostsvim.png)
+![image16](images/hostsvim.png)
 
 Use the ansible ad hoc command `ansible -m ping all` to test connectivity to all four hosts.
 
 You should get a ping pong response for each client server.
 
+![image17](images/pingpong.png)
 
