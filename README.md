@@ -1,7 +1,5 @@
 ![image0](images/ansibleproject.png)
 
-# Ansible Playbooks Project
-
 In this project I created Ansible playbooks for installing Apache and Git on multiple Ubuntu and Amazon Linux servers, using variables and handlers. I set up the architecture on AWS and configured several client servers through an Ansible controller.
 
 # Project Steps
